@@ -1,16 +1,18 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { UserContext } from "./contexts.jsx";
 import './App.css'
-import UserContextProvider from "./context/UserContextProvider.jsx";
 
 function App() {
+  const userHook = useState(null);
 
   return (
-    <UserContextProvider>
+    <UserContext.Provider value={userHook}>
       <div>
         <h1>Hello from App.jsx</h1>
         <Outlet/>
       </div>
-    </UserContextProvider>
+    </UserContext.Provider>
   )
 }
 
